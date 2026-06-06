@@ -9678,16 +9678,24 @@ h2.pCount {
   font-weight: 700;
 }
 
-.brand-solution {
-  color: #cccccc; /* light gray for Solution */
-  font-weight: 400;
-  font-size: 24px; /* smaller size */
-  text-transform: none; /* keep normal case */
+.stats-card {
+  background: linear-gradient(135deg, #2c3e50, #3498db);
+  border-radius: 12px;
+  min-height: 65px;   /* reduced height */
+  max-width: 130px;   /* compact width */
+  margin: 0 auto;
+  font-size: 13px;
 }
 
+.contact-box {
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  padding: 8px;       /* reduced padding */
+}
 
-
-
-
-
-
+.contact-title {
+  color: #f1c40f;
+  text-transform: uppercase;
+  font-size: 13px;
+  margin-bottom: 3px;
+}
