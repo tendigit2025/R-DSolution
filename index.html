@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
@@ -229,7 +229,7 @@
         </div>
     </div>
     <!-- FAQs End -->
-    <!-- Contact Start -->  <!--
+    <!-- Contact Start -->  
     <div class="container-fluid py-5" id="contact">
         <div class="container py-5">
             <div class="section-title position-relative text-center">
@@ -238,36 +238,26 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <h5 class="text-center mb-4"> For any Query Provide Your Name and Mobile Number, and Click on the 'Call Back Request' Button our concern team will reachout to you soon.</h5>
-                    <form>
+                    
                         <div class="form-row">
-  <div class="col-sm-6 control-group mb-3">
-    <input type="text" 
-           class="form-control bg-secondary border-0 py-4 px-3 rounded" 
-           id="name" 
-           placeholder="Your Name" />
-  </div>
+ <form id="callbackForm">
+  <label for="name">Name</label>
+  <input type="text" id="name" placeholder="Enter your name" required>
 
-  <div class="col-sm-6 control-group mb-3">
-    <input type="email" 
-           class="form-control bg-secondary border-0 py-4 px-3 rounded" 
-           id="email" 
-           placeholder="Mobile Number" />
-  </div>
+  <label for="mobile">Mobile</label>
+  <input type="tel" id="mobile" placeholder="Enter your mobile number" required>
+
+  <button type="submit">Request Callback</button>
+</form>
 </div>
-                        <div class="text-center">
-                            <button class="btn btn-custom mt-2 btn-scroll font-weight-bold py-3 px-5" type="submit">Call Back Request</button>
-                        </div>
-                    </form>
+                       
+                   
                 </div>
             </div>
         </div>
-    </div> -->
-	<div class="container-fluid py-5" id="contact">
-	<form id="callbackForm">
-  Name : <input type="text" id="name" />
-  Mobile :<input type="tel" id="mobile" />
-  <button type="submit">Submit</button>
-</form>
+    </div> 
+
+</div>
 </div>
     <!-- Contact End -->
     <!-- Footer Start -->
@@ -325,20 +315,35 @@
 	<!-- jQuery CDN -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
- <script>
+ <script>   
     $(document).ready(function() {
-      $("#callbackForm").on("submit", function(e) {
-        e.preventDefault();
-        alert("hiiii");
-        const name = $("#name").val();
-        const mobile = $("#mobile").val();
-        const yourNumber = "918095388799";
-        const message = `New Callback Request:\nName: ${name}\nMobile: ${mobile}`;
-        window.open(`https://wa.me/${yourNumber}?text=${encodeURIComponent(message)}`, "_blank");
-      });
-    });
+  $("#callbackForm").on("submit", function(e) {
+    e.preventDefault();
+
+    const name = $("#name").val().trim();
+    const mobile = $("#mobile").val().trim();
+
+    // Name validation: only letters/spaces, min 2 chars
+    const nameRegex = /^[A-Za-z\s]{2,}$/;
+    if (!nameRegex.test(name)) {
+      alert("❌ Please enter a valid name (letters only, min 2 characters).");
+      return; // stop here
+    }
+
+    // Mobile validation: 10 digits, starts with 6–9
+    const mobileRegex = /^[6-9]\d{9}$/;
+    if (!mobileRegex.test(mobile)) {
+      alert("❌ Please enter a valid 10-digit mobile number.");
+      return; // stop here
+    }
+
+    // ✅ If both validations pass → redirect
+    const yourNumber = "918095388799"; 
+    const message = `New Callback Request:\nName: ${name}\nMobile: ${mobile}`;
+
+    window.location.href = `whatsapp://send?phone=${yourNumber}&text=${encodeURIComponent(message)}`;
+  });
+});
   </script>
-
-
 </body>
 </html>
