@@ -9699,3 +9699,71 @@ h2.pCount {
   font-size: 13px;
   margin-bottom: 3px;
 }
+
+.form-container {
+  max-width: 720px;   /* keeps it neat */
+  margin: 0 auto;     /* centers on page */
+  padding: 20px;      /* adds breathing room */
+  background: #f9f9f9; /* soft background */
+  border-radius: 12px; /* rounded corners */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* subtle shadow */
+}
+
+.form-container iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+}
+/* Callback Form Container */
+#callbackForm {
+  max-width: 380px;
+  margin: 0 auto;            /* center without extra top/bottom space */
+  padding: 15px;             /* reduced padding */
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Labels */
+#callbackForm label {
+  display: block;
+  margin-bottom: 4px;        /* tighter spacing */
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+/* Inputs */
+#callbackForm input {
+  width: 100%;
+  padding: 8px 10px;         /* compact padding */
+  margin-bottom: 10px;       /* reduced gap between fields */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+#callbackForm input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Submit Button */
+#callbackForm button {
+  width: 100%;
+  padding: 10px;             /* compact button */
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#callbackForm button:hover {
+  background: #0056b3;
+}
