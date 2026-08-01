@@ -67,12 +67,12 @@
              style="object-fit: cover;">
         <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
           <div class="p-3" style="max-width: 900px;">
-            <h1 class="brand-heading">
+<h1 class="brand-heading">
   <span class="brand-r">R</span>
   <span class="brand-ampd">&amp; D</span>
   <span class="brand-solution">Solution</span>
 </h1>
-
+<p class="tagline-text">Innovative Solar Solution For Home</p>
             <h4 class="display-2 font-secondary text-white mb-4">Innovative Solar Solution For Home</h4>
             <a class="btn btn-custom mt-2 btn-scroll" href="#contact">Contact Us</a>
           </div>
@@ -275,7 +275,9 @@
           +91-8095388799 <i class="fab fa-whatsapp" style="color:#25D366; font-size:18px;"></i>
         </a>
       </p>
-      <p class="mb-0 small">+91-8895439225<i class="fab fa-whatsapp" style="color:#25D366; font-size:18px;"></i></p>
+      <p class="mb-0 small">
+        +91-8895439225 <i class="fab fa-whatsapp" style="color:#25D366; font-size:18px;"></i>
+      </p>
     </div>
     <div class="col-md-3 mb-1 d-flex justify-content-center align-items-center">
       <a href="https://consumer.pmsuryaghar.gov.in/consumer/#/login" target="_blank" class="blink-apply" 
@@ -284,31 +286,28 @@
       </a>
     </div>
   </div>
-  <!-- Copyright Row -->
-  <div class="row">
-    <div class="col-12 text-center mt-2">
-      <p class="small mb-0" style="color:white;">
-        © R&amp;D Solution. All Rights Reserved.
-      </p>
-    </div>
+
+  <!-- Follow Us + Copyright -->
+  <!-- Follow Us + Copyright -->
+<div class="row align-items-center justify-content-between mt-2">
+  <div class="col-md-6 d-flex justify-content-start">
+    <a href="#" class="mx-2">
+      <i class="fab fa-facebook-f" style="color:#1877F2; font-size:20px;"></i>
+    </a>
+    <a href="#" class="mx-2">
+      <i class="fab fa-linkedin-in" style="color:#0A66C2; font-size:20px;"></i>
+    </a>
+    <a href="#" class="mx-2">
+      <i class="fab fa-instagram" style="color:#E4405F; font-size:20px;"></i>
+    </a>
+  </div>
+  <div class="col-md-6 text-right">
+    <p class="m-0 small">© R&amp;D Solution. All Rights Reserved.</p>
   </div>
 </div>
 
-      <!-- Follow Us Section -->
-      <div class="row align-items-center justify-content-between mt-2">
-        <div class="col-md-6 d-flex justify-content-start">
-          <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
-        </div>
-        <div class="col-md-6 text-right">
-          <p class="m-0 small">&copy; <a href="#">R&amp;D Solution</a>. All Rights Reserved.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
 </div>
+
     <!-- Scroll to Bottom -->
     <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
     <!-- Back to Top -->
@@ -324,43 +323,47 @@
 	
 	<!-- jQuery CDN -->
  <script>   
-        $(document).ready(function() {
-  $("#callbackForm").on("submit", function(e) {
-    e.preventDefault();
+    $(document).ready(function() {
+      $("#callbackForm").on("submit", function(e) {
+        e.preventDefault();
 
-    const name = $("#name").val().trim();
-    const mobile = $("#mobile").val().trim();
+        const name = $("#name").val().trim();
+        const mobile = $("#mobile").val().trim();
 
-    // ✅ Name validation
-    const nameRegex = /^[A-Za-z\s]{2,}$/;
-    if (!nameRegex.test(name)) {
-      alert("❌ Please enter a valid name (letters only, min 2 characters).");
-      return;
-    }
+        // ✅ Name validation: only letters/spaces, min 2 chars
+        const nameRegex = /^[A-Za-z\s]{2,}$/;
+        if (!nameRegex.test(name)) {
+          alert("❌ Please enter a valid name (letters only, min 2 characters).");
+          return;
+        }
 
-    // ✅ Indian mobile validation
-    const mobileRegex = /^[6-9]\d{9}$/;
-    if (!mobileRegex.test(mobile)) {
-      alert("❌ Please enter a valid Indian mobile number (10 digits, starting with 6–9).");
-      return;
-    }
+        // ✅ Indian mobile validation: 10 digits, starts with 6–9
+        const mobileRegex = /^[6-9]\d{9}$/;
+        if (!mobileRegex.test(mobile)) {
+          alert("❌ Please enter a valid Indian mobile number (10 digits, starting with 6–9).");
+          return;
+        }
 
-    // ✅ If both validations pass → redirect
-    const yourNumber = "918095388799"; 
-    const message = `New Callback Request:\nName: ${name}\nMobile: ${mobile}`;
-    const encodedMsg = encodeURIComponent(message);
+        // ✅ If both validations pass → redirect
+        const yourNumber = "919876543210"; 
+        const message = `New Callback Request:\nName: ${name}\nMobile: ${mobile}`;
+        const encodedMsg = encodeURIComponent(message);
 
-    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-    if (isMobile) {
-      window.location.href = `whatsapp://send?phone=${yourNumber}&text=${encodedMsg}`;
-    } else {
-      window.open(`https://web.whatsapp.com/send?phone=${yourNumber}&text=${encodedMsg}`, "_blank");
-    }
+        if (isMobile) {
+          // 📱 Mobile → open WhatsApp app
+          window.location.href = `whatsapp://send?phone=${yourNumber}&text=${encodedMsg}`;
+        } else {
+          // 🖥️ Desktop → open WhatsApp Web
+          window.open(`https://web.whatsapp.com/send?phone=${yourNumber}&text=${encodedMsg}`, "_blank");
+        }
 
-    // ✅ Clear the form after successful redirect
-    this.reset();
-	   });
-});  </script>
+        // ✅ Clear the form after successful redirect
+        this.reset();
+      });
+    });
+
+  </script>
 </body>
 </html>
